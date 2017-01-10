@@ -24,10 +24,7 @@
 <%= link_to 'Back', books_path %> |
 <%= link_to 'Emprunter', new_book_reservation_path(@book) %>
 
-      <%= form_tag @book_reservation_path do %>
-        <%= hidden_field_tag 'book_id', @book.id %>
-        <%= submit_tag 'Emprunter', class: 'btn btn-primary' %>
-      <% end %>
+
         <h2> <%= pluralize @book.reservations.size, "reservation" %></h2>
       <% if @book.reservations.blank? %>
       Be the first to leave a reservation for <%= @book.title %>

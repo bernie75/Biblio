@@ -2,13 +2,12 @@
 <h1>Reservation</h1>
 <p>
   <strong>User:</strong>
-  <%= @reservation.user.first_name %>
+  <%= @reservation.user %>
 </p>
 
 <p>
-  <strong>Book:</strong>
+  <strong>livre:</strong>
   <%= @reservation.book.title %>
 </p>
 
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>
