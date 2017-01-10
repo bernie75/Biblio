@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Back', root_path %> |
+
+<h1>Books</h1>
+
+
+      <th>Title</th>
+      <th>Resume</th>
+      <th>Author</th>
+      <th>Available</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <div class="container">
+  <div class="raw">
+    <% @books.each do |book| %>
+      <div class="col-xs-12 col-sm-6">
+      <li><%= link_to book.title, book_path(book) %></li>
+      <%= book.resume %>
+      <%= book.author %>
+      <%= book.available %>
+      <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+<br>
+
+<%= link_to 'New Book', new_book_path %>
