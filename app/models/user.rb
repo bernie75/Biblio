@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :reservations
+
+  def name
+    "#{first_name} #{last_name}"
+  end
+
+
 end

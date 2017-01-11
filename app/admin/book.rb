@@ -17,7 +17,7 @@ permit_params :title, :resume, :author
       column :id
       column :title
       column :author
-      column :resume
+
       column :available
       actions
     end
