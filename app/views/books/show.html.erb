@@ -22,7 +22,7 @@
 </div>
 <div class="media-aside">
   <div class="media-section text-center">
-      <h2> <%= pluralize @book.reservations.size, "reservation en cours" %></h2>
+
     <% if @book.reservations.blank? %>
       Be the first to leave a reservation for <%= @book.title %>
       <% else %>

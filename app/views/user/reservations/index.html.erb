@@ -7,12 +7,12 @@
 
 <div class="container">
   <div class="raw">
-  <% @reservations.each do |reservation| %>
-  <div class="col-xs-12 col-sm-6">
-    <h2><%= link_to reservation.book.title%></h2>
-    <ul><%= reservation.book.author %></ul>
-      <ul><%= reservation.book.resume %></ul>
-  </div>
+    <% @reservations.each do |reservation| %>
+      <div class="col-xs-12 col-sm-6">
+        <h2><%= link_to reservation.book.title%></h2>
+        <ul><%= reservation.book.author %></ul>
+        <ul><%= reservation.book.resume %></ul>
+      </div>
     <% end %>
   </div>
 </div>

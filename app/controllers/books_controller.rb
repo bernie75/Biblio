@@ -11,7 +11,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @reservation = @book.reservations.new
+
   end
 
   # GET /books/new
@@ -61,6 +61,11 @@ class BooksController < ApplicationController
       format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def available
+    @book.available = (params[:state] == "disponible" ? true : false)
+    @book.save
   end
 
   private

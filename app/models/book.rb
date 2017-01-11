@@ -1,5 +1,12 @@
 class Book < ApplicationRecord
-  has_many :reservations
+  belongs_to :reservations, required: true
   validates :title, presence: true
   validates :author, presence: true
+
+  scope :available, -> { where(available: true) }
+
+  def available?
+    available
+  end
+
 end
