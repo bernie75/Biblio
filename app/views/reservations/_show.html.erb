@@ -1,13 +1,11 @@
 <p id="notice"><%= notice %></p>
 <h1>Reservation</h1>
-<p>
-  <strong>User:</strong>
-  <%= @reservation.user %>
+<div class="badge-container">
+<%= image_tag "avatar.jpg", class: "avatar dropdown-toggle" %>
+
+</div>
+<p><%= @reservation.user%>
 </p>
 
-<p>
-  <strong>livre:</strong>
-  <%= @reservation.book.title %>
+<p><%= @reservation.book.title %>
 </p>
-
-<%= link_to 'Back', reservations_path %>

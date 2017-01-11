@@ -1,35 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
-
-<p>
-  <strong>Resume:</strong>
-  <%= @book.resume %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
-
-<p>
-  <strong>Available:</strong>
-  <%= @book.available %>
-</p>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %> |
-<%= link_to 'Emprunter', new_book_reservation_path(@book) %>
-
-
-        <h2> <%= pluralize @book.reservations.size, "reservation" %></h2>
-      <% if @book.reservations.blank? %>
+<% content_for(:title) do %>
+  <%= @book.title %> is on Biblio
+<% end %>
+<% content_for(:resume) do %>
+  <%= @book.resume %> is one the best book
+<% end %>
+<div class="media">
+  <div class="media-body">
+    <div class="media-section">
+      <p> <%= @book.title %></p>
+      <p><%= @book.author %></p>
+      <div class="media-section">
+        <p><%= @book.resume %></p>
+        <p><%= @book.available %></p>
+        <%= link_to 'Back', books_path %> |
+        <%= link_to 'Emprunter', new_book_reservation_path(@book) %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="media-aside">
+  <div class="media-section text-center">
+      <h2> <%= pluralize @book.reservations.size, "reservation en cours" %></h2>
+    <% if @book.reservations.blank? %>
       Be the first to leave a reservation for <%= @book.title %>
       <% else %>
-      <% @book.reservations.each do |reservation| %>
-       <li><%= render 'reservations/show', reservation: reservation %></li>
-      <% end %>
-      <% end %>
+        <% @book.reservations.each do |reservation| %>
+          <li><%= render 'reservations/show', reservation: reservation %></li>
+        <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+
